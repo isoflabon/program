@@ -15,7 +15,7 @@ else
 		# ディレクトリ存在しない場合
 		# 拡張子の名前のディレクトリを作成
     	mkdir $ext
-		mv $filename $ext
 	fi
+	mv *.$ext $ext
 fi
 done
