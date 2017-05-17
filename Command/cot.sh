@@ -16,7 +16,7 @@ do
 			open -a CotEditor $file
 			break;;
 		"n")
-			echo "Miss. Not open the $file!"
+			echo "Miss. Not open the 『 $file 』!"
 			break;;
 	esac
 done
