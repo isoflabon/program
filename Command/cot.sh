@@ -8,7 +8,7 @@ else
 
 while :
 do
-	echo "『 $file 』 is not exist. Create?[y or n] ==> "
+	printf "『 $file 』 is not exist. Create?[y or n] => "
 	read ans
 	case "$ans" in
 		"y")
