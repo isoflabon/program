@@ -6,17 +6,26 @@ if [ -e $file ]; then
 	open -a  CotEditor $file
 else
 
+
+# 拡張子を取得する
+ext="${file##*.}"
+
 while :
 do
 	printf "『 $file 』 is not exist. Create?[y or n] => "
 	read ans
 	case "$ans" in
 		"y")
+# 		拡張子のテンプレートがあればそれを使う.
+		if [ -e ~/Command/Command/Templete/templete.$ext ]; then
+			cp ~/Command/Command/Templete/templete.$ext $file
+		else
 			touch $file
+		fi
 			open -a CotEditor $file
 			break;;
 		"n")
-			echo "Miss. Not open the 『 $file 』!"
+			echo "Miss. Don't open the 『 $file 』!"
 			break;;
 	esac
 done
