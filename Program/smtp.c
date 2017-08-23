@@ -1,3 +1,5 @@
+// SMTPの基本プロコトルをC言語で実装
+// 整えてプログラムしてないのでかなり見にくい
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -103,16 +105,7 @@ int main(int argc, char* argv[]){
   read(sds, buf, sizeof(buf));
   printf("読み込んだ内容//%s", buf);
 
-  
-//   /* DATA の送信 */
-//   write(sds, "DATA ", sizeof(buf)); 
-//   read(sds, write, sizeof(buf));
-//   
-//   fp = fopen(argv[3], "r");
-//   while(fgets(buf, 1024, fp) != NULL){
-//     write(sds, fp, sizeof(buf));
-//  }
-//   
+
   write(sds, "QUIT", sizeof(buf));  
   read(sds, write, sizeof(buf));
   
