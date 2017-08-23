@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# 拡張子のテンプレディレクトリのパスを書く
+Temple=~/GitProgram/Command/Templete/templete
+
 file=$1
 
 if [ -e $file ]; then
@@ -17,8 +20,8 @@ do
 	case "$ans" in
 		"y")
 # 		拡張子のテンプレートがあればそれを使う.
-		if [ -e ~/Command/Command/Templete/templete.$ext ]; then
-			cp ~/Command/Command/Templete/templete.$ext $file
+		if [ -e $Temple.$ext ]; then
+			cp $Temple.$ext $file
 		else
 			touch $file
 		fi
