@@ -112,6 +112,6 @@ int main(int argc, char* argv[]){
  
 void usage(void)
 {
-  fprintf(stderr, "Usage: %s 差出 宛先 テキスト IP ドメイン\n",command_name);
+  fprintf(stderr, "Usage: %s 差出 宛先 テキスト サーバー名 ドメイン\n",command_name);
   exit(1);
 }
