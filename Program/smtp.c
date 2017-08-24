@@ -10,7 +10,6 @@
 #include <unistd.h>
  
  
-#define SERVER_NAME "n-lab.info"
 #define ERR -1
 #define BUFSIZE 1024
  
@@ -58,7 +57,6 @@ int main(int argc, char* argv[]){
   strcpy(buf,"HELO ");
   strcat(buf,argv[5]);
   strcat(buf,"\n");
-//   strcpy(buf, "HELO ie.u-ryukyu.ac.jp \n");
   printf("書き込む内容//%s",buf);
   write(sds, buf, strlen(buf));  
   read(sds, buf, sizeof(buf));
