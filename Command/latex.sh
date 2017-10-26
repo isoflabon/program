@@ -10,6 +10,7 @@ platex $file > make.log
 f=`echo $file | sed 's/\.[^\.]*$//'`
 
 echo $f
+dvipdfmx $f
 
 while :
 do
