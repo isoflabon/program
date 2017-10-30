@@ -8,7 +8,8 @@ class Client {
     public Client(){
 
     }
-    public void connect(String url) throws IOException{
+    // mainから与えられたurlに接続し、価格を取ってくる
+    public String connect(String url) throws IOException{
       // コネクションを確立
       HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
       InputStream in = conn.getInputStream();
@@ -20,7 +21,7 @@ class Client {
           out.append(line);
       }
 
-      System.out.println(out.toString());
       reader.close();
+      return out.toString();
     }
 }

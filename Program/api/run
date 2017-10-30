@@ -1,0 +1,7 @@
+#!bin/sh
+
+javac Main.java
+javac Client.java
+javac CutInfo.java
+
+java Main
