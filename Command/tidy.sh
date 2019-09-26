@@ -22,7 +22,7 @@ do
 	
 	# 空白を取り除き拡張子の取り出し
 	ext=`echo $filename | sed 's/ //g' | sed 's/^.*\.\([^\.]*\)$/\1/'`
-	if [ $ext = "$filename" ]; then printf "\t\e[31mSKIP\e[30m: $filename には拡張子がありません\n"; continue; fi
+	if [ $ext = `echo $filename | sed 's/ //g'` ]; then printf "\t\e[31mSKIP: $filename には拡張子がありません\e[30m\n"; continue; fi
 	
 	if [ ! -d $extend/$ext ]; then
 		printf "\t\e[34mCREATE\e[30m: $ext ディレクトリを作成します\n"
