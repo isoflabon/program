@@ -7,7 +7,7 @@ extend="Extend"
 if [ -e $extend ]; then
 	echo "\tINFO: $extend 以下にデータを整理します"
 else
-	echo "\tCREATE: Extendディレクトリを作成します"
+	printf "\t\e[34mCREATE\e[30m: Extendディレクトリを作成します\n"
 	mkdir $extend
 fi
 
@@ -16,16 +16,16 @@ ls -1 | while read filename
 do
 	# 空白を含んだファイルをSkip
 	if [ -d "$filename" ]; then
-		echo  "\tSKIP: $filename はDirectoryです"
+		printf "\t\e[30mSKIP\e[30m: $filename はDirectoryです\n"
 		continue
 	fi
 	
 	# 空白を取り除き拡張子の取り出し
 	ext=`echo $filename | sed 's/ //g' | sed 's/^.*\.\([^\.]*\)$/\1/'`
-	if [ $ext = "$filename" ]; then echo "\tSKIP: $filename には拡張子がありません"; continue; fi
+	if [ $ext = "$filename" ]; then printf "\t\e[31mSKIP\e[30m: $filename には拡張子がありません\n"; continue; fi
 	
 	if [ ! -d $extend/$ext ]; then
-		echo "\tCREATE: $ext ディレクトリを作成します"
+		printf "\t\e[34mCREATE\e[30m: $ext ディレクトリを作成します\n"
 		mkdir $extend/$ext
 	fi
 
