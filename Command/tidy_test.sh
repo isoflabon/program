@@ -1,9 +1,9 @@
 #!bin/sh
 testdata_dir_name='tidy_testdata'
 now_dir=`pwd`
-file_basename='test'
+file_basename=('test' 'te st')
 IFS=$','
-file_extname=('.png' '.txt' '' '.log' '.jpeg' '.abc')
+file_extname=('.png' '.txt' '' '.log' '.jpeg' '.abc' '.jp g' '.jpg')
 
 
 main() {
@@ -13,7 +13,7 @@ main() {
   generate_testdata
   echo '---- Execute Command ----'
   cd $testdata_dir_name
-  `sh ${now_dir}/tidy.sh`
+  sh ${now_dir}/tidy.sh
   echo '---- Check TestData ----'
   check_valid_data
 }
@@ -37,10 +37,14 @@ generate_testdata(){
   fi
   mkdir $testdata_dir_name
 
-  for e in ${file_extname[@]}; do
-    filename="${file_basename}${file_extname[$i]}"
-    touch "${testdata_dir_name}/${filename}"
-    echo "\tCreate file: ${filename}"
+  for e in ${file_basename[@]}; do
+    for e2 in ${file_extname[@]}; do
+      filename="${file_basename[$i]}${file_extname[$j]}"
+      touch "${testdata_dir_name}/${filename}"
+      echo "\tCreate file: ${filename}"
+      let j++
+    done
+    j=0
     let i++
   done
 }
